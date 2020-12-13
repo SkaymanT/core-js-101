@@ -91,7 +91,7 @@ function getPolynom(...args) {
  */
 function memoize(func) {
   const res = func();
-  return function () {
+  return function newFunc() {
     return res;
   };
 }
@@ -171,7 +171,7 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(fn, ...args1) {
-  return function (...args2) {
+  return function newFunc(...args2) {
     return fn(...args1, ...args2);
   };
 }
